@@ -1,0 +1,63 @@
+# Все настройки приложения. Значения по умолчанию продублированы в core/config.py,
+# так что файл можно сокращать — недостающее подставится.
+
+[display]
+# Холст, который принимает панель. Подтверждён хендшейком: PM=64 SUB=3 -> 1600x720.
+width = 1600
+height = 720
+fps = 60
+# "preview" — окно на ПК, "trcc" — реальный экран через trcc-linux.
+backend = "preview"
+# Через сколько секунд пробовать снова, если экран отвалился по USB.
+reconnect_seconds = 5.0
+# Скругление маски видимой области (панель сама режет углы ~120 px).
+corner_radius = 120
+
+[preview]
+# Масштаб окна предпросмотра относительно холста.
+scale = 0.55
+show_mask = true
+
+[media]
+# Папка с GIF и MP4 (подпапки тоже читаются).
+folder = "C:/Users/murat/Documents/OpencodeExit/levita/gifs"
+rotation_seconds = 20
+transition_ms = 700
+shuffle = true
+# Сколько последних роликов не повторять.
+repeat_avoid = 6
+# Допустимая доля потерянной площади при обрезке (0.20 = 20%).
+crop_tolerance = 0.20
+blur_radius = 32
+blur_darken = 0.55
+# Память под готовые кадры: короче круг — меньше resize на 60 fps.
+frame_cache_mb = 256
+
+[palette]
+colors = 4
+sample_seconds = 0.07
+smoothing = 0.6
+
+[rgb]
+enabled = true
+host = "127.0.0.1"
+port = 6742
+# Пусто = первое устройство OpenRGB со светодиодами.
+device = ""
+# Зоны платы: у MSI 5V ARGB — это JARGB 1..3, JAF — другой разъём.
+zone = "JARGB"
+# Сколько светодиодов выставить зоне (MSI начинает с 0).
+zone_leds = 24
+rate_hz = 30
+# Плавно, пока оттенок тот же; быстро — при смене цвета.
+smooth_seconds = 0.6
+fast_smooth_seconds = 0.08
+hue_jump_degrees = 35
+min_delta = 1
+# Закрывать программы, перехватывающие ARGB (MSI Center, SignalRGB…).
+autokill_conflicts = true
+conflict_check_seconds = 10
+
+[logging]
+level = "INFO"
+file = "logs/levita.log"

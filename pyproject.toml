@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "levita-display"
+version = "0.1.0"
+description = "GIF/MP4 player and ARGB sync for Thermalright Levita Vision 360"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "Levita Display contributors" }]
+dependencies = [
+    "pillow>=10.0",
+    "numpy>=1.24",
+    "opencv-python-headless>=4.9",
+    "psutil>=5.9",
+    "pyside6>=6.5",
+    "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools]
+packages = ["core", "display", "media", "rgb", "ui"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
